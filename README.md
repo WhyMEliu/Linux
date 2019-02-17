@@ -2,7 +2,7 @@
 就是做了一些整理~常用系统工作命令，系统状态检测命令，工作目录切换命令，文本文件编辑命令，文件目录管理命令，打包压缩与搜索命令
 ### 常用系统工作命令
 
-##### echo
+#### echo
 
 echo 命令用于在终端输出字符串或变量提取后的值，格式为“echo [字符串 | $变量]
 
@@ -12,7 +12,7 @@ Linuxprobe.Com
 [root@linuxprobe ~]# echo $SHELL
 /bin/bash
 ```
-##### date
+#### date
 
 date 命令用于显示及设置系统的时间或日期，格式为“date [选项] [+指定的格式]”。
 
@@ -37,20 +37,20 @@ Fri Sep 1 08:30:01 CST 2017
 [root@linuxprobe ~]# date "+%j"
 244
 ```
-##### reboot
+#### reboot
 
 reboot 命令用于重启系统其格式为 rebo
 ```
 [root@linuxprobe ]# rebo
 ```
-##### poweroff
+#### poweroff
 
 poweroff 命令用于关闭系统，其格式为 powerof
 
 ```
 [root@linuxprobe ~]# powero
 ```
-##### wget
+#### wget
 
 wget 命令用于在终端中下载网络文件，格式为“wget [参数] 下载地址”
 
@@ -67,7 +67,7 @@ wget 命令用于在终端中下载网络文件，格式为“wget [参数] 下�
 [root@linuxprobe ~]# wget http://www.linuxprobe.com/docs/LinuxProbe.pdf
 ```
 
-##### ps
+#### ps
 
 ps 命令用于查看系统中的进程状态，格式为“ps [参数]”。
 
@@ -78,17 +78,21 @@ ps 命令用于查看系统中的进程状态，格式为“ps [参数]”。
 |-x 			| 显示没有控制终端的进程  | 
 
 ➢R(运行)：进程正在运行或在运行队列中等待。
+
 ➢S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该 
 状态。
+
 ➢D(不可中断)：进程不响应系统异步信号，即便用 kill 命令也不能将其中断。
+
 ➢Z(僵死)：进程已经终止，但进程描述符依然存在, 直到父进程调用 wait4()系统函数后将进程释。
+
 ➢ T(停止)：进程收到停止信号后停止。
 
 
 表 2-7 进程(ps -aux)
 ![](/images/ps-aux.png)
 
-##### top
+#### top
 top 命令用于动态地监视进程活动与系统负载等信息，其格式为 top。
 
 ![](/images/top.jpg)
@@ -105,7 +109,7 @@ top 命令用于动态地监视进程活动与系统负载等信息，其格式�
 
 ➢ 第 5 行：虚拟内存总量、虚拟内存使用量、虚拟内存空闲量、已被提前加载的内
 
-##### pidof
+#### pidof
 pidof 命令用于查询某个指定服务进程的 PID 值，格式为“pidof [参数] [服务名称]”。
 
 ```
@@ -113,14 +117,14 @@ pidof 命令用于查询某个指定服务进程的 PID 值，格式为“pidof 
 2156
 ```
 
-##### kill
+#### kill
 kill 命令用于终止某个指定 PID 的服务进程，格式为“kill [参数] [进程 PID]”。
 
 ```
 [root@linuxprobe ]# kill  -9 2156
 ```
 
-##### killall
+#### killall
 用于终止某个指定名称的服务所对应的全部进程，格式为：“killall [参数] [服
 务名称]”。
 
@@ -134,7 +138,7 @@ kill 命令用于终止某个指定 PID 的服务进程，格式为“kill [参�
 
 ### 系统状态检测命令
 
-##### ifconfig
+#### ifconfig
 ifconfig 命令用于获取网卡配置与网络状态等信息，格式为“ifconfig [网络设备] [参数]。
 
 主要查看的就
@@ -152,7 +156,7 @@ TX packets 38 bytes 4757 (4.6 KiB)
 TX errors 0 dropped 0 overruns 0 carrier 0 collisions 
 0lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536inet 127.0.0.1 netmask 255.0.0.0inet6 ::1 prefixlen 128 scopeid 0x10<host>loop txqueuelen 0 (Local Loopback)RX packets 386 bytes 32780 (32.0 KiB)RX errors 0 dropped 0 overruns 0 frame 0TX packets 386 bytes 32780 (32.0 KiB)TX errors 0 dropped 0 overruns 0 carrier 0 collisions
 ```
-##### uname
+#### uname
 uname 命令用于查看系统内核与系统版本等信息，格式为“uname [-a]”。
 
 在使用 uname 命令时，一般会固定搭配上-a 参数来完整地查看当前系统的内核名称、主
@@ -163,7 +167,7 @@ uname 命令用于查看系统内核与系统版本等信息，格式为“uname
 Linux linuxprobe.com 3.10.0-123.el7.x86_64 #1 SMP Mon May 5 11:16:57 EDT 2017
 x86_64 x86_64 x86_64 GNU/Linux
 ```
-##### uptime
+#### uptime
 uptime 用于查看系统的负载信息，格式为 uptime。
 
 uptime 命令真的很棒，它可以显示当前系统时间、系统已运行时间、启用终端数量以
@@ -174,20 +178,20 @@ uptime 命令真的很棒，它可以显示当前系统时间、系统已运行�
 [root@linuxprobe ~]# uptime
 22:49:55 up 10 min, 2 users, load average: 0.01, 0.19, 0.18
 ```
-##### free
+#### free
 free 用于显示当前系统中内存的使用量信息，格式为“free [-h]”。
 ```
 [root@linuxprobe ]# free
 ```
 ![](/images/free-h.jpg)
 
-##### who
+#### who
 
 who 命令用于查看当前登入主机的用户终端信息，格式为“who [参数]”。
 ```
 [root@linuxprobe ~]# who
 ```
-##### last
+#### last
 last 命令用于查看所有系统的登录记录，格式为“last [参数]”。
 使用 last 命令可以查看本机的登录记录。但是，由于这些信息都是以日志文件的形式保
 存在系统中，因此黑客可以很容易地对内容进行篡改。千万不要单纯以该命令的输出信息而
@@ -202,7 +206,7 @@ root pts/0 :0 Mon Aug 24 15:40 - 08:54 (7+17:14)
 root pts/0 :0 Fri Jul 10 10:49 - 15:37 (45+04:47)
 ………………省略部分登录信息………………
 ```
-##### history
+#### history
 history 命令用于显示历史执行过的命令，格式为“history [-c]”。
 history 命令应该是作者最喜欢的命令。执行 history 命令能显示出当前用户在本地计算机
 中执行过的最近 1000 条命令记录。如果觉得 1000 不够用，还可以自定义/etc/profile 文件中的
@@ -239,20 +243,20 @@ Desktop Downloads Music Public Videos
 [root@linuxprobe ~]# cat ~/.bash_history
 [root@linuxprobe ~]# history -c  //清除
 ```
-##### sosreport
+#### sosreport
 sosreport 命令用于收集系统配置及架构信息并输出诊断文档，格式为 sosreport。
 这个用的不多，需要的自己查资料~
 
 
 ### 工作目录切换命令
 
-##### pwd
+#### pwd
 pwd 命令用于显示用户当前所处的工作目录，格式为“pwd [选项]”。
 ```
 [root@linuxprobe etc]# pwd
 /etc
 ```
-##### cd
+#### cd
 cd 命令用于切换工作路径，格式为“cd [目录名称]”。
 ```
 [root@linuxprobe ~]# cd /etc //进入
@@ -260,7 +264,7 @@ cd 命令用于切换工作路径，格式为“cd [目录名称]”。
 [root@linuxprobe etc]# cd ~  //用户家目录
 ```
 
-##### ls
+#### ls
 ls 命令用于显示目录中的文件信息，格式为“ls [选项] [文件] ”。
 
 所处的工作目录不同，当前工作目录下的文件肯定也不同。使用 ls 命令的“-a”参数看
@@ -279,7 +283,7 @@ drwxr-xr-x. 17 root root 4096 May 4 15:55 ..
 [root@linuxprobe ~]# ls -ld /etcdrwxr-xr-x. 132 root root 8192 Jul 10 10:48 /e
 ```
 ### 文本文件编辑命令
-##### cat
+#### cat
 cat 命令用于查看纯文本文件（内容较少的），格式为“cat [选项] [文件]”。
 ```
 [root@linuxprobe ~]# cat -n initial-setup-ks.cfg
@@ -288,7 +292,7 @@ cat 命令用于查看纯文本文件（内容较少的），格式为“cat [�
 3 xconfig --startxonboot
 省略..............
 ```
-##### more
+#### more
 more 命令用于查看纯文本文件（内容较多的），格式为“more [选项]文件”。
 ```
 [root@linuxprobe ~]# more initial-setup-ks.cfg
@@ -297,7 +301,7 @@ more 命令用于查看纯文本文件（内容较多的），格式为“more [
 省略............
 --More--(43%)
 ```
-##### head
+#### head
 head 命令用于查看纯文本文档的前 N 行，格式为“head [选项] [文件]”。
 ```
 [root@linuxprobe ~]# head -n 20 initial-setup-ks.cfg
@@ -305,7 +309,7 @@ head 命令用于查看纯文本文档的前 N 行，格式为“head [选项] [
 # X Window System configuration information
 省略............
 ```
-##### tail
+#### tail
 tail 命令用于查看纯文本文档的后 N 行或持续刷新内容，格式为“tail [选项] [文件]”。
 
 tail 命令最强悍的功能是可以持续刷新一个文件的内容，当想要实时
@@ -316,7 +320,7 @@ May 4 07:56:38 localhost gnome-session: Window manager warning: Log level 16:
 STACK_OP_ADD: window 0x1e00001 already in stack
 省略............
 ```
-##### tr
+#### tr
 tr 命令用于替换文本文件中的字符，格式为“tr [原始字符] [目标字符]”。
 
 把某个文本内容中的英文全部替换
@@ -324,7 +328,7 @@ tr 命令用于替换文本文件中的字符，格式为“tr [原始字符] [�
 ```
 [root@linuxprobe ~]# cat anaconda-ks.cfg | tr [a-z] [A-Z]
 ```
-##### wc
+#### wc
 wc 命令用于统计指定文本的行数、字数、字节数，格式为“wc [参数] 文本”。
 
 | 参数        | 作用   |    
@@ -336,7 +340,7 @@ wc 命令用于统计指定文本的行数、字数、字节数，格式为“wc
 [root@linuxprobe ~]# wc -l /etc/passwd
 38 /etc/pass
 ```
-##### stat
+#### stat
 stat 命令用于查看文件的具体存储信息和时间等信息，格式为“stat 文件名称”。
 ```
 [root@linuxprobe ~]# stat anaconda-ks.cfg
@@ -350,7 +354,7 @@ Modify: 2017-05-04 15:44:36.916027026 -0400
 Change: 2017-05-04 15:44:36.916027026 -0400
 Birth: -
 ```
-##### cut
+#### cut
 cut 命令用于按“列”提取文本字符，格式为“cut [参数] 文本”。
 
 在 Linux 系统中，如何准确地提取出最想要的数据，这也是我们应该重点学习的内容。一般
@@ -377,7 +381,7 @@ games
 ftp
 省略...............
 ```
-##### diff
+#### diff
 用于比较多个文本文件的差异，格式为“diff [参数] 文件”。
 ```
 [root@linuxprobe ~]# diff --brief diff_A.txt diff_B.t
@@ -400,7 +404,7 @@ Professional guidance
 Linux Course
 ```
 ### 文件目录管理命令
-##### touch
+#### touch
 touch 命令用于创建空白文件或设置文件的时间，格式为“touch [选项] [文件]”。
 
 | 参数        | 作用   |    
@@ -420,7 +424,7 @@ anaconda-ks.cfg
 [root@linuxprobe ~]# ls -l anaconda-ks.cfg
 -rw-------. 1 root root 1260 May 4 15:44 anaconda-ks.cfg
 ```
-##### mkdir
+#### mkdir
 mkdir 命令用于创建空白的目录，格式为“mkdir [选项] 目录”。
 
 ```
@@ -431,7 +435,7 @@ mkdir 命令用于创建空白的目录，格式为“mkdir [选项] 目录”�
 [root@linuxprobe a]# cd b
 [root@linuxprobe b]#
 ```
-##### cp
+#### cp
 cp 命令用于复制文件或目录，格式为“cp [选项] 源文件 目标文件”。
 
 | 参数        | 作用   |    
@@ -449,7 +453,7 @@ cp 命令用于复制文件或目录，格式为“cp [选项] 源文件 目标�
 install.log x.log
 ```
 
-##### mv
+#### mv
 mv 命令用于剪切文件或将文件重命名，格式为“mv [选项] 源文件 [目标路径|目标文件名]”。
 
 ```
@@ -457,7 +461,7 @@ mv 命令用于剪切文件或将文件重命名，格式为“mv [选项] 源�
 [root@linuxprobe ~]# ls
 install.log linux.log
 ```
-##### rm
+#### rm
 rm 命令用于删除文件或目录，格式为“rm [选项] 文件”。
 
 想要删除一个目录，
@@ -469,7 +473,7 @@ rm: remove regular empty file ‘install.log’? y
 [root@linuxprobe ~]# ls
 [root@linuxprobe ~]#
 ```
-##### dd
+#### dd
 dd 命令用于按照指定大小和个数的数据块来复制文件或转换文件，格式为“dd [参数]”。
 
 dd 命令是一个比较重要而且比较有特色的一个命令，它能够让用户按照指定大小和个数
@@ -508,7 +512,7 @@ dd 命令的功能也绝不仅限于复制文件这么简单。如果您想把�
 大小）与用勺子盛饭的次数（count 块个数）之间进行平衡。勺子越大，用勺子盛饭的次数就越少。由上可见，bs 与 count 都是用来指定容量的大小，只要能满足需求，可随意组合搭配方
 式。
 
-##### file
+#### file
 file 命令用于查看文件的类型，格式为“file 文件名”。
 ```
 [root@linuxprobe ~]# file anaconda-ks.cfg
@@ -519,7 +523,7 @@ anaconda-ks.cfg: ASCII text
 
 ### 打包压缩与搜索命令
 
-##### tar
+#### tar
 tar 命令用于对文件进行打包压缩或解压，格式为“tar [选项] [文件]”。
 
 | 参数        | 作用   |    
@@ -540,7 +544,7 @@ tar 命令用于对文件进行打包压缩或解压，格式为“tar [选项] 
 [root@linuxprobe ~]# mkdir /root/etc
 [root@linuxprobe ~]# tar xzvf etc.tar.gz -C /root/etc
 ```
-##### grep
+#### grep
 grep 命令用于在文本中执行关键词搜索，并显示匹配的结果，格式为“grep [选项] [文件]”。
 
 | 参数        | 作用   |    
@@ -565,7 +569,7 @@ mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
 operator:x:11:0:operator:/root:/sbin/nologin
 ………………省略部分输出过程信息………………
 ```
-##### find
+#### find
 find 命令用于按照指定条件来查找文件，格式为“find [查找路径] 寻找条件 操作”。
 
 在 Linux 系统中，搜索工作一般都是通过 find 命令来完成的，它可以使用不同的文件特性作
